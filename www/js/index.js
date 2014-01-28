@@ -35,7 +35,8 @@ var app = {
     onDeviceReady: function() {
         console.log("Device ready");
         app.receivedEvent('deviceready');
-        $("sendRequest").click(function () {
+        $("#sendRequest").click(function () {
+            $("#deviceready").append('<p>Hit</p>');
             console.log("Ok");
         });
     },

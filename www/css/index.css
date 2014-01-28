@@ -115,6 +115,7 @@ h1 {
 }
 
 .large {
-    height: 30px;
+    height: 60px;
+    width: 95px;
     background-color: #330033;
 }
