@@ -35,7 +35,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         $("sendRequest").click(function () {
-            $("deviceready").append("<p>Hit</p>");
+            console.log("Ok");
         });
     },
     // Update DOM on a Received Event
