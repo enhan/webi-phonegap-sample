@@ -36,10 +36,18 @@ var app = {
         console.log("Device ready");
         app.receivedEvent('deviceready');
         $("#sendRequest").click(function () {
-            $("#deviceready").append('<p>Hit</p>');
-            console.log("Ok");
-            $.get("http://google.fr", function(data){
-               console.log("success");
+
+            console.log("Request");
+            $.ajax({
+                url: "http://dev.webinage.net/ui/resources/auth/userauth",
+                headers: {
+                    Authorization: 'Basic ' + btoa( 'anne.demo' + ':' + 'password')
+                }
+            }).done(function (data, status, xhr) {
+                    console.log("Success");
+                    $("#deviceready").append('<p>'+ data + '</p>');
+            }).fail(function(xhr, status, error){
+                    console.log('error ' + status);
             });
         });
     },
