@@ -38,6 +38,9 @@ var app = {
         $("#sendRequest").click(function () {
             $("#deviceready").append('<p>Hit</p>');
             console.log("Ok");
+            $.get("http://google.fr", function(data){
+               console.log("success");
+            });
         });
     },
     // Update DOM on a Received Event
