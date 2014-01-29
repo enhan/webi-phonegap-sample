@@ -48,6 +48,15 @@
     <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
+
+    <!-- Urban Airship -->
+    <preference name="com.urbanairship.production_app_key" value="Your production app key" />
+    <preference name="com.urbanairship.production_app_secret" value="Your production app secret" />
+    <preference name="com.urbanairship.development_app_key" value="fgv6K2n0QaiKsIlsR_gSQg" />
+    <preference name="com.urbanairship.development_app_secret" value="d3V8BsYfQZO0RpPVKxH6vw" />
+    <preference name="com.urbanairship.in_production" value="false" />
+    <preference name="com.urbanairship.gcm_sender" value="445096783002" />
+
     <access origin="http://127.0.0.1*" />
     <access origin="http://google.fr"/>
     <access origin="http://dev.webinage.net"/>
