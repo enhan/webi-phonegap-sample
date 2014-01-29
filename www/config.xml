@@ -51,6 +51,9 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 
     <!-- Urban Airship -->
+    <gap:plugin name="Device" value="org.apache.cordova.core.Device"/>
+    <gap:plugin name="com.urbanairship.phonegap.PushNotification" value="com.urbanairship.phonegap.PushNotification"/>
+
     <preference name="com.urbanairship.production_app_key" value="Your production app key" />
     <preference name="com.urbanairship.production_app_secret" value="Your production app secret" />
     <preference name="com.urbanairship.development_app_key" value="fgv6K2n0QaiKsIlsR_gSQg" />
