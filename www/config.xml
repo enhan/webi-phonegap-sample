@@ -8,7 +8,6 @@
         PhoneGap Team
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
-    <feature name="com.urbanairship.phonegap.PushNotification" />
 
     <preference name="phonegap-version" value="3.3.0"/>
     <preference name="permissions" value="none" />
