@@ -26,3 +26,6 @@ out/
 .idea_modules/
 
 atlassian-ide-plugin.xml
+
+platforms/
+plugins/android.json
