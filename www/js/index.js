@@ -34,25 +34,6 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         console.log("Device ready");
-        document.addEventListener('urbanairship.registration', function(event) {
-            if (event.error) {
-                console.log('There was an error registering for push notifications.');
-                $("#deviceready").append('<p>'+ event.pushID + '</p>');
-            } else {
-                $("#deviceready").append('<p>'+ event.pushID + '</p>');
-                console.log("Registered with ID: " + event.pushID);
-            }
-        });
-        app.receivedEvent('deviceready');
-        $("#sendRequest").click(function () {
-
-            console.log("Request");
-            head.load("http://192.168.0.50/webisample/simple.js", function(){
-                var hello =getHello();
-                $("#deviceready").append('<p>'+ hello + '</p>');
-                console.log("Remote hello : " + hello);
-            });
-        });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
