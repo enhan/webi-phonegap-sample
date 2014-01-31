@@ -34,35 +34,20 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         console.log("Device ready");
-        document.addEventListener('urbanairship.registration', function(event) {
-            if (event.error) {
-                console.log('There was an error registering for push notifications.');
-                $("#deviceready").append('<p>'+ event.pushID + '</p>');
-            } else {
-                $("#deviceready").append('<p>'+ event.pushID + '</p>');
-                console.log("Registered with ID: " + event.pushID);
-            }
+        var loader = new Loader();
+        var res = loader.loadRemote();
+        console.log("Result is: " + res);
+        if (res){
+            $("#deviceready").append("<p>"+ res +"</p>");
+        }else{
+            $("#deviceready").append("<p>Not good !</p>");
+        }
+
+        head.load("http://192.168.0.50/webisample/simple.js", function(){
+            var hello = getHello();
+            console.log(hello);
+            $("#deviceready").append("<p>"+ hello +"</p>");
         });
-        app.receivedEvent('deviceready');
-        $("#sendRequest").click(function () {
 
-            console.log("Request");
-            head.load("http://192.168.0.50/webisample/simple.js", function(){
-                var hello =getHello();
-                $("#deviceready").append('<p>'+ hello + '</p>');
-                console.log("Remote hello : " + hello);
-            });
-        });
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
     }
 };
