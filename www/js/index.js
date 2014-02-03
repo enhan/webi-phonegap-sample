@@ -34,20 +34,20 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         console.log("Device ready");
-        var loader = new Loader();
-        var res = loader.loadRemote();
-        console.log("Result is: " + res);
-        if (res){
-            $("#deviceready").append("<p>"+ res +"</p>");
-        }else{
-            $("#deviceready").append("<p>Not good !</p>");
-        }
-
-        head.load("http://192.168.0.50/webisample/simple.js", function(){
-            var hello = getHello();
-            console.log(hello);
-            $("#deviceready").append("<p>"+ hello +"</p>");
-        });
+        var loader = new WebiLoader();
+        var loadResult = loader.loadRemote();
+        loadResult.then(
+            function () {
+                console.log("Okay then");
+                var hello = getHello();
+                console.log("Msg = " + hello);
+                $("#deviceready").append("<p>Soma hello stuff : "+ hello +"</p>");
+            },
+            function () {
+                console.log("Error");
+                $("#deviceready").append("<p>Error !!! :( <p>");
+            }
+        );
 
     }
 };
