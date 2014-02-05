@@ -35,7 +35,7 @@ var app = {
     onDeviceReady: function() {
         console.log("Device ready");
         var loader = new WebiLoader();
-        var loadResult = loader.loadRemote();
+        var loadResult = loader.load();
         loadResult.then(
             function () {
                 console.log("Okay then");
