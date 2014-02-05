@@ -62,8 +62,8 @@
     <preference name="com.urbanairship.gcm_sender" value="445096783002" />
     <preference name="com.urbanairship.enable_push_onlaunch" value="true" />
 
-    <access origin="http://127.0.0.1*" />
-    <access origin="http://google.fr"/>
-    <access origin="http://dev.webinage.net"/>
+    <access origin="*" />
+    <!--<access origin="http://google.fr"/>-->
+    <!--<access origin="http://dev.webinage.net"/>-->
 
 </widget>
