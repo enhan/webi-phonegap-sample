@@ -3,10 +3,11 @@
  */
 
 
-function WebiLoader() {
-    this.server = "http://192.168.0.50";
+function WebiLoader(configManager) {
+    this.server = configManager.currentConfig;
     this.scriptInfo = undefined;
     this.pendingHash = undefined;
+
 }
 
 
@@ -74,7 +75,7 @@ WebiLoader.prototype = {
         }
 
 
-        var dlUrl = encodeURI( targetServ + "/webisample/simple.js");
+        var dlUrl = encodeURI( targetServ + "/simple.js");
         var target = fs.root.fullPath + '/Webinage/script.js';
 
         console.log("About to download from : " + dlUrl);
