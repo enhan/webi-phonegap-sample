@@ -7,8 +7,8 @@
         </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="conf in knownConfigs" ng-click="changeConfig(conf)">
-                <td>{{ conf }}</td>
+            <tr ng-repeat="conf in knownConfigs">
+                <td>{{ conf }} <button ng-click="changeConfig(conf)" type="button" class="btn btn-primary btn-sm">Use</button></td>
             </tr>
         </tbody>
     </table>

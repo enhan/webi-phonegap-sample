@@ -14,5 +14,10 @@ webisample.config(function ($stateProvider, $urlRouterProvider) {
             url: '/config',
             templateUrl: 'html/parameters.html',
             controller: 'ConfigCtrl'
+        })
+        .state('custom', {
+            url: '/custom',
+            templateUrl: 'html/custom.html',
+            controller: 'CustomCtrl'
         });
 });

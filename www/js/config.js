@@ -25,6 +25,10 @@ function ConfigurationManager(){
 
 }
 
+ConfigurationManager.prototype.changeCurrentConfig = function (newConfig) {
+    this.currentConfig = newConfig;
+};
+
 webisample.factory('configService', function () {
     return new ConfigurationManager();
 });

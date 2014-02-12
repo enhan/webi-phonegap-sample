@@ -4,7 +4,7 @@
 
 
 function WebiLoader(configManager) {
-    this.server = configManager.currentConfig;
+    this.configService = configManager;
     this.scriptInfo = undefined;
     this.pendingHash = undefined;
 
@@ -38,7 +38,7 @@ WebiLoader.prototype = {
         var deferred = Q.defer();
         // JQuery ajax call to get current hash
         var self = this;
-        $.getJSON(this.server + "/webisample/digest.json").done(function(data, status, xhr){
+        $.getJSON(this.configService.currentConfig + "/digest.json").done(function(data, status, xhr){
             console.log("Hash is " + data.hash);
             self.pendingHash = data.hash;
             deferred.resolve(data.hash);
@@ -58,15 +58,15 @@ WebiLoader.prototype = {
 
     loadRemote: function () {
         console.log("Load remote !!");
-        console.log("Using server " + this.server);
+        console.log("Using server " + this.configService.currentConfig);
 
         return this.requireFS().then(this.downloadScript.bind(this)).then(this.loadScript.bind(this));
     },
     downloadScript: function (fs) {
         // First, check
         console.log("Download script !!");
-        console.log("Using server " + this.server);
-        var targetServ = this.server;
+        console.log("Using server " + this.configService.currentConfig);
+        var targetServ = this.configService.currentConfig;
         var deferred = Q.defer();
         var fileTransfert = new FileTransfer();
         if (fileTransfert === undefined || fileTransfert === null){
@@ -134,3 +134,7 @@ WebiLoader.prototype = {
     }
 
 };
+
+angular.module("webisample").factory('webiLoader', ['configService', function(configService){
+    return new WebiLoader(configService);
+}]);
